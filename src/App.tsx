@@ -1,22 +1,21 @@
-import React, {MouseEvent} from 'react';
-import {Button} from "./components/Button";
+import React, {MouseEvent, useState} from 'react';
 
 function App() {
-    const Button1foo = (subscriber: string, age: number) =>{
-        console.log(subscriber, age)
+    let [a, setA] = useState(1);
+    const OnClickHandler = () => {
+        setA(++a);
+        console.log(a);
     }
-    const Button2foo = (subscriber: string) =>{
-        console.log(subscriber)
-    }
-    const Button3foo = () =>{
-        console.log('I\'m stupid button')
+    const OnClickHandler2 = () => {
+        setA(0);
+        console.log(a);
     }
     return (
-       <div>
-           <Button name={'MyYoutubeChanel-1'} callBack={()=>Button1foo('I\'m Vasya', 21)}/>
-           <Button name={'MyYoutubeChanel-2'} callBack={()=>Button2foo('I\'m Ivan')}/>
-           <Button name={'MyYoutubeChanel-3'} callBack={Button3foo}/>
-       </div>
+        <div>
+            <h1>{a}</h1>
+            <button onClick={OnClickHandler}>number</button>
+            <button onClick={OnClickHandler2}>0</button>
+        </div>
     );
 }
 
